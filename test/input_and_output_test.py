@@ -1,6 +1,8 @@
+import numpy as np
+
 h = input('H : ')
 w = input('W : ')
 
-field = [[0]*int(w)]*int(h)
+field = np.zeros((int(h), int(w)))
 
 print(field)
