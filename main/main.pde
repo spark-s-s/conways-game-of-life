@@ -19,9 +19,6 @@ void setup() {
       data_p[i][j] = 0;
     }
   }
-  data_p[10][9] = 1;
-  data_p[10][10] = 1;
-  data_p[10][11] = 1;
   rectMode(CORNER);
 }
 
@@ -30,9 +27,10 @@ int count(int[][] a, int x, int y) {
   int cnt = 0;
   for(int i = x-1; i <= x+1; i++) {
     for(int j = y-1; j <= y+1; j++) {
-      cnt += a[x][y];
+      cnt += a[i][j];
     }
   }
+  cnt -= a[x][y];
   return cnt;
 }
 
