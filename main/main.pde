@@ -11,7 +11,7 @@ void setup() {
   block_size = 16;
   edge_width = 2;
   n = (int)(field_size / block_size) - 1;
-  data_c = new int[n + 2][n + 2];
+  data_c = new int[n + 2][n + 2]; // 
   data_p = new int[n + 2][n + 2];
   for(int i = 0; i < n+2; i++) {
     for(int j = 0; j < n+2; j++) {
@@ -19,6 +19,9 @@ void setup() {
       data_p[i][j] = 0;
     }
   }
+  data_p[10][9] = 1;
+  data_p[10][10] = 1;
+  data_p[10][11] = 1;
   rectMode(CORNER);
 }
 
@@ -35,6 +38,7 @@ int count(int[][] a, int x, int y) {
 
 void draw() {
   background(255);
+  
   // 配列の更新
   for(int i = 1; i < n+1; i++) {
     for(int j = 1; j < n+1; j++) {
@@ -47,6 +51,7 @@ void draw() {
       }
     }
   }
+  
   // 境界条件
   for(int i = 1; i <= n; i++) {
     data_c[i][0]     = data_c[i][n];
@@ -65,5 +70,6 @@ void draw() {
       if(data_c[i][j] == 1) fill(0, 0, 0);
     }
   }
+
   delay(1000);
 }
