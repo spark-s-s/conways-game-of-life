@@ -20,6 +20,10 @@ void setup() {
     }
   }
   rectMode(CORNER);
+  //test
+  data_c[20][20] = 1;
+  data_c[20][21] = 1;
+  data_c[20][22] = 1;
 }
 
 // あるセルに隣接する生きたセルの数を求める
@@ -35,11 +39,25 @@ int count(int[][] a, int x, int y) {
 }
 
 void draw() {
+  // 表示
   background(255);
+  for(int i = 1; i <= n; i++) {
+    for(int j = 1; j <= n; j++) {
+      square(block_size/2 + block_size*(i-1), block_size/2 + block_size*(j-1), block_size - edge_width);
+      if(data_c[i][j] == 1) fill(0, 0, 0);
+      else fill(255, 255, 255);
+    }
+  }
   
-  // 配列の更新
-  for(int i = 1; i < n+1; i++) {
-    for(int j = 1; j < n+1; j++) {
+  // 配列のコピー
+  for(int i = 0; i < n+1; i++) {
+    for(int j = 0; j < n+1; j++) {
+      data_p[i][j] = data_c[i][j];
+    }
+  }
+  // 配列の計算
+  for(int i = 1; i <= n; i++) {
+    for(int j = 1; j <= n; j++) {
       if(data_p[i][j] == 0) {
         // 誕生
         if(count(data_p, i, j) == 3) data_c[i][j] = 1;
@@ -61,13 +79,6 @@ void draw() {
   data_c[0][n + 1]     = data_c[n][1];
   data_c[n + 1][0]     = data_c[1][n];
   data_c[n + 1][n + 1] = data_c[1][1];
-  // 表示
-  for(int i = 1; i <= n; i++) {
-    for(int j = 1; j <= n; j++) {
-      square(block_size/2 + block_size*(i-1), block_size/2 + block_size*(j-1), block_size - edge_width);
-      if(data_c[i][j] == 1) fill(0, 0, 0);
-    }
-  }
 
   delay(1000);
 }
