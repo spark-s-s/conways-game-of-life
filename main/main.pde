@@ -48,9 +48,9 @@ void draw() {
     }
   }
   // 表示
-  for(int i = 0; i < n; i++) {
-    for(int j = 0; j < n; j++) {
-      square(block_size/2 + block_size*i, block_size/2 + block_size*j, block_size - edge_width);
+  for(int i = 1; i <= n; i++) {
+    for(int j = 1; j <= n; j++) {
+      square(block_size/2 + block_size*(i-1), block_size/2 + block_size*(j-1), block_size - edge_width);
     }
   }
   delay(1000);
