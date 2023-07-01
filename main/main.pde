@@ -47,6 +47,17 @@ void draw() {
       }
     }
   }
+  // 境界条件
+  for(int i = 1; i <= n; i++) {
+    data_c[i][0]     = data_c[i][n];
+    data_c[i][n + 1] = data_c[i][1];
+    data_c[0][i]     = data_c[n][i];
+    data_c[n + 1][i] = data_c[1][i];
+  }
+  data_c[0][0]         = data_c[n][n];
+  data_c[0][n + 1]     = data_c[n][1];
+  data_c[n + 1][0]     = data_c[1][n];
+  data_c[n + 1][n + 1] = data_c[1][1];
   // 表示
   for(int i = 1; i <= n; i++) {
     for(int j = 1; j <= n; j++) {
