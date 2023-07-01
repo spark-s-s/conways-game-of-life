@@ -2,7 +2,8 @@ int field_size;
 int block_size;
 int edge_width;
 int n;
-int[][] data;
+int[][] data_c;
+int[][] data_p;
 
 void setup() {
   size(800, 800);
@@ -10,10 +11,9 @@ void setup() {
   block_size = 16;
   edge_width = 2;
   n = (int)(field_size / block_size) - 1;
-  data = new int[n][n];
-  
+  data_c = new int[n + 2][n + 2];
+  data_p = new int[n + 2][n + 2];
   rectMode(CORNER);
-  data = new int[49][49];
 }
 
 void draw() {
