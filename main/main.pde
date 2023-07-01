@@ -21,9 +21,15 @@ void setup() {
   }
   rectMode(CORNER);
   //test
-  data_c[20][20] = 1;
-  data_c[20][21] = 1;
-  data_c[20][22] = 1;
+  data_c[41][40] = 1;
+  data_c[40][41] = 1;
+  data_c[40][42] = 1;
+  data_c[40][43] = 1;
+  data_c[41][43] = 1;
+  data_c[42][43] = 1;
+  data_c[43][43] = 1;
+  data_c[44][42] = 1;
+  data_c[44][40] = 1;
 }
 
 // あるセルに隣接する生きたセルの数を求める
@@ -70,16 +76,16 @@ void draw() {
   }
   
   // 境界条件
-  for(int i = 1; i <= n; i++) {
-    data_c[i][0]     = data_c[i][n];
-    data_c[i][n + 1] = data_c[i][1];
-    data_c[0][i]     = data_c[n][i];
-    data_c[n + 1][i] = data_c[1][i];
-  }
-  data_c[0][0]         = data_c[n][n];
-  data_c[0][n + 1]     = data_c[n][1];
-  data_c[n + 1][0]     = data_c[1][n];
-  data_c[n + 1][n + 1] = data_c[1][1];
+  //for(int i = 1; i <= n; i++) {
+  //  data_c[i][0]     = data_c[i][n];
+  //  data_c[i][n + 1] = data_c[i][1];
+  //  data_c[0][i]     = data_c[n][i];
+  //  data_c[n + 1][i] = data_c[1][i];
+  //}
+  //data_c[0][0]         = data_c[n][n];
+  //data_c[0][n + 1]     = data_c[n][1];
+  //data_c[n + 1][0]     = data_c[1][n];
+  //data_c[n + 1][n + 1] = data_c[1][1];
 
-  delay(1000);
+  delay(100);
 }
